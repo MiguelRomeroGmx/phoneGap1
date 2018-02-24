@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <title>IoTTech</title>
+</head>
+
+<body>
+    <!-- <div class="app">
+        <h1>PhoneGap</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Dispositivo listo</p>
+        </div> -->
+
+        <!-- Codigo anterior -->
+
+        
+
+<div class="container" style="text-align:center">
+    <!-- <img src="portadatw.png" alt="" width="300"> -->
+
+
+    <!-- Reiniciar -->
+    <div class="my-4">
+        <h2 id="msgReiniciar">Reiniciar</h2>
+        <!-- <div class="loader" id="loader"> -->
+        <div id="loader">
+            <button id="reiniciar1" class="btn reiniciar bloqReinicio">
+                <i id="btnReiniciar" class="fas fa-redo-alt fa-6x"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="cancelacion2" class="my-4 collapse">
+        <h5 id="msgCancelReinicio">Cancelar Reinicio</h5>
+
+        <button id="cancelarReinicio" class="btn testeo">
+            <i id="btnTest2" class="fas fa-times-circle fa-2x"></i>
+        </button>
+
+    </div>
+
+    <!-- <div id="reinicio" class="panel-body"></div> -->
+
+
+    <!-- Apagar -->
+    <div class="my-4">
+        <h2 id="msgOnOff">Apagar</h2>
+        <button id="encender1" class="btn encender">
+            <i id="btnApagar" class="far fa-lightbulb fa-8x"></i>
+        </button>
+    </div>
+    <div id="onOff" class="panel-body"></div>
+
+    <!-- Test de coinexion -->
+    <div class="my-4">
+        <h2 id="msgTest">Test de Conexión</h2>
+        <div id="loader2">
+            <button id="test1" class="btn testeo">
+                <i id="btnTest" class="fas fa-sync-alt fa-5x"></i>
+            </button>
+        </div>
+    </div>
+    <div id="test" class="panel-body"></div>
+
+
+    <div id="cancelacion" class="my-4 collapse">
+        <h5 id="msgCancel">Cancelar Test</h5>
+
+        <button id="cancelar" class="btn testeo">
+            <i id="btnTest" class="fas fa-times-circle fa-2x"></i>
+        </button>
+
+    </div>
+    <div id="test" class="panel-body"></div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Codigo anterior -->
+
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+<!-- Optional JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+<script>
+
+    var config = {
+        apiKey: "AIzaSyCIpeQ_sNlB2G0E8Gr20_81N-mVrpg92wk",
+        authDomain: "conectodos-5d860.firebaseapp.com",
+        databaseURL: "https://conectodos-5d860.firebaseio.com",
+        projectId: "conectodos-5d860",
+        storageBucket: "conectodos-5d860.appspot.com",
+        messagingSenderId: "703468910137"
+    };
+
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    // const auth = firebase.auth();
+
+    var btnEncender = document.getElementById("encender1");
+    var btnReiniciar = document.getElementById("reiniciar1");
+    var btnTest = document.getElementById("test1");
+    var btnCancelar = document.getElementById("cancelar");
+    var btnCancelarReinicio = document.getElementById("cancelarReinicio");
+    var reinicio = document.getElementById("reinicio");
+    var test = document.getElementById("test");
+    var msgOnOff = document.getElementById("msgOnOff");
+    var msgReiniciar = document.getElementById("msgReiniciar");
+    var msgTest = document.getElementById("msgTest");
+
+
+    var datoFire = firebase.database().ref().child("dato1");
+    var datoFire2 = firebase.database().ref().child("dato2");
+    var on_off = firebase.database().ref().child("Control-01/1_on_off");
+    var reinicio = firebase.database().ref().child("Control-01/2_reiniciar");
+    var test = firebase.database().ref().child("Control-01/5_test");
+    var msg = firebase.database().ref().child("Control-01/3_mensaje");
+    var confirmacion = firebase.database().ref().child("Control-01/4_confirmacion");
+    var respuesta = firebase.database().ref().child("Control-01/7_respuesta");
+
+    btnEncender.addEventListener("click", function () {
+        // console.log("botonpress"); 
+        if (t1 == 0) { //   
+            firebase.database().ref("Control-01/1_on_off").set(1);
+        } else if (t1 == 1) {
+            firebase.database().ref("Control-01/1_on_off").set(0);
+        }
+    });
+
+    btnReiniciar.addEventListener("click", function () {
+        firebase.database().ref("Control-01/2_reiniciar").set(1);
+        $("#loader").addClass("loader");
+        $("#cancelacion2").removeClass("collapse");
+    });
+
+    btnTest.addEventListener("click", function () {
+        firebase.database().ref("Control-01/2_reiniciar").set(3)
+        msgTest.innerHTML = "Esperando Respuesta";
+        $("#loader2").addClass("loader");
+        $("#cancelacion").removeClass("collapse");
+    });
+
+    btnCancelar.addEventListener("click", function () {
+        firebase.database().ref("Control-01/2_reiniciar").set(0);
+        $("#cancelacion").addClass("collapse");
+        msgTest.innerHTML = "Test de Conexión";
+    });
+
+    btnCancelarReinicio.addEventListener("click", function () {
+        firebase.database().ref("Control-01/2_reiniciar").set(0)
+        $("#cancelacion2").addClass("collapse");
+    });
+
+
+
+    //  datoFire.on("value", function (snaptshot) { 
+    //      datoFire = snaptshot.val(); 
+    //      reinicio.innerHTML = datoFire;
+    //     console.log(datoFire);
+    //      });
+
+    //  datoFire2.on("value", function (snaptshot) { 
+    //      datoFire2 = snaptshot.val(); 
+    //     //  test.innerHTML = datoFire2;
+    //      console.log(datoFire2); 
+    //     });
+
+    msg.on("value", function (snaptshot) {
+        msg = snaptshot.val();
+        msgReiniciar.innerHTML = msg;
+        console.log(msg);
+    });
+
+    reinicio.on("value", function (snaptshot) {
+        reinicio = snaptshot.val();
+
+        if (reinicio == 1) {
+            // msgReiniciar.innerHTML = "Reiniciando";
+            $("#loader").addClass("loader");
+            btnEncender.disabled = true;
+
+        } else if (reinicio == 0) {
+            msgReiniciar.innerHTML = "Reiniciar";
+            $("#loader").removeClass("loader");
+            $("#loader2").removeClass("loader");
+            $("#cancelacion").addClass("collapse");
+            $("#cancelacion2").addClass("collapse");
+            btnEncender.disabled = false;
+        }
+    });
+
+
+    respuesta.on("value", function (snaptshot) {
+        respuesta = snaptshot.val();
+        onOff.innerHTML = respuesta;
+    });
+
+    test.on("value", function (snaptshot) {
+        test = snaptshot.val();
+        msgTest.innerHTML = test;
+    });
+
+
+
+    var t1 = 0, t2 = 0;
+
+    on_off.on("value", function (snaptshot) {
+
+        on_off = snaptshot.val();
+        // test.innerHTML = on_off;
+
+        if (on_off == 1) {
+            $("#btnApagar").removeClass("far fa-lightbulb").addClass("fas fa-lightbulb");
+            $("#reiniciar1").removeClass("bloqReinicio").addClass("reiniciar");
+            btnReiniciar.disabled = false;
+            msgOnOff.innerHTML = "Apagar";
+            t1 = 1;
+
+            // console.log("encendido");
+        } else if (on_off == 0) {
+            $("#btnApagar").removeClass("fas fa-lightbulb").addClass("far fa-lightbulb");
+            $("#reiniciar1").removeClass("reiniciar").addClass("bloqReinicio");
+            btnReiniciar.disabled = true;
+
+            msgOnOff.innerHTML = "Encender";
+            t1 = 0;
+            // console.log("apagado");
+
+        }
+
+
+
+
+    });
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
